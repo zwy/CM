@@ -168,10 +168,10 @@
 		18D317431A089AF8003F98C9 = {
 			isa = PBXGroup;
 			children = (
-				18478D9F1A13678C0018BDEF /* libsqlite3.dylib */,
 				18D3174E1A089AF8003F98C9 /* CM */,
 				18D3176B1A089AF8003F98C9 /* CMTests */,
 				18D3174D1A089AF8003F98C9 /* Products */,
+				18478D9F1A13678C0018BDEF /* libsqlite3.dylib */,
 			);
 			sourceTree = "<group>";
 		};
