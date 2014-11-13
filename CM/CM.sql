@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS Loca_Contact (id TEXT,name TEXT,teles TEXT,lastUpdateTime TEXT,emails TEXT);
