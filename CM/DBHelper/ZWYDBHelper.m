@@ -153,4 +153,91 @@
     return versionNumber;
 }
 
++ (FMDatabase *)getDB {
+    NSString *dbFilePath =
+    [ZWYDBHelper applicationCacheDirectoryFile:DB_FILE_NAME];
+    return [FMDatabase databaseWithPath:dbFilePath];
+}
+
+#pragma mark - 
+// 搜索数据库里存的通讯录信息
++ (NSMutableArray *)searchLocaContact
+{
+    NSMutableArray *resArray = [[NSMutableArray alloc]init];
+    FMDatabase *db = [self getDB];
+    if (![db open]) {
+        return resArray;
+    }
+    NSString *dbFilePath =
+    [ZWYDBHelper applicationCacheDirectoryFile:DB_FILE_NAME];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbFilePath];
+    [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        NSString *searchSqlStr = @"select * FROM Loca_Contact";
+        
+        FMResultSet *s = [db executeQuery:searchSqlStr];
+        
+        while ([s next]) {
+            ContactItem * contact = [[ContactItem alloc]init];
+            contact.contact_Id = [s stringForColumn:@"id"];
+            contact.name = [s stringForColumn:@"name"];
+            contact.teles = [s stringForColumn:@"teles"];
+            contact.lastUpdateTime = [s stringForColumn:@"lastUpdateTime"];
+            contact.emails = [s stringForColumn:@"emails"];
+            [resArray addObject:contact];
+        }
+    }];
+    [db close];
+    return resArray;
+}
+
+// 更新
++ (void)updateContactsWithContactArray:(NSArray *)contactArray
+{
+    FMDatabase *db = [self getDB];
+    if (![db open]) {
+        return;
+    }
+    
+    //    for (ContactItem *contact in contactArray) {
+    //        DLog(@"name= %@ , teles = %@, lastUpdateTime = %@ where contact_Id = %@",contact.name,contact.teles,contact.lastUpdateTime,contact.contact_Id);
+    //    }
+    
+    NSString *dbFilePath =
+    [ZWYDBHelper applicationCacheDirectoryFile:DB_FILE_NAME];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbFilePath];
+    [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        
+        for (ContactItem *contact in contactArray) {
+            //            NSString *updateSqlStr = @"update Loca_Contact set contact_Id = ? , name= ? , teles = ?, lastUpdateTime = ? where contact_Id = ?";
+            //            [db executeUpdate:updateSqlStr,contact.contact_Id,contact.name,contact.teles,contact.lastUpdateTime,contact.contact_Id];
+            
+            NSString *updateSqlStr = @"update Loca_Contact set  name= ? , teles = ?, lastUpdateTime = ?, emails = ? where id = ?";
+            [db executeUpdate:updateSqlStr,contact.name,contact.teles,contact.lastUpdateTime,contact.emails,contact.contact_Id];
+            //            if (s) {
+            //                DLog(@"chenggong");
+            //            }
+        }
+    }];
+    [db close];
+}
+
++ (void)insertContactsWithContactArray:(NSArray *)contactArray
+{
+    FMDatabase *db = [self getDB];
+    if (![db open]) {
+        return;
+    }
+    NSString *dbFilePath =
+    [ZWYDBHelper applicationCacheDirectoryFile:DB_FILE_NAME];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbFilePath];
+    [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        
+        for (ContactItem *contact in contactArray) {
+            NSString *updateSqlStr = @"insert into Loca_Contact (id,name,teles,lastUpdateTime,emails) values (?,?,?,?,?)";
+            [db executeUpdate:updateSqlStr,contact.contact_Id,contact.name,contact.teles,contact.lastUpdateTime,contact.emails];
+        }
+    }];
+    [db close];
+}
+
 @end

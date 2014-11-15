@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "ContactItem.h"
 @interface ZWYDBHelper : NSObject
 //初始化并加载数据
 + (void)initDB;
 
+
++ (NSMutableArray *)searchLocaContact;
++ (void)updateContactsWithContactArray:(NSArray *)contactArray;
++ (void)insertContactsWithContactArray:(NSArray *)contactArray;
 @end

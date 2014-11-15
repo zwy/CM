@@ -12,4 +12,11 @@
 
 + (void)alertWithTitle:(NSString *)title msg:(NSString *)aMsg cancelTitle:(NSString *)aCancleTitle tag:(NSInteger)aTag delegate:(id)delegate;
 + (NSInteger)cellAccessoryType:(NSString *)typeStr;
+
+
++ (BOOL)validateEmail:(NSString *)email;
++ (NSString *)turePhoneNumber:(NSString *)phoneNumber;
++ (NSString *)stringByTrimmingWhitespaceWithString:(NSString *)string;
+
++ (NSString *)getTheTimesStrYMDHM:(NSDate *)date;
 @end

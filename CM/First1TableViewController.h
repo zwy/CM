@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AppDelegate.h"
 @interface First1TableViewController : UITableViewController
 
+@property (nonatomic, assign)ABAddressBookRef addressBooks;
+
+@property (retain, nonatomic) NSMutableArray *dataArray;// tableview 数据
 @end

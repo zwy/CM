@@ -23,5 +23,5 @@
 
 
 #define DB_FILE_NAME @"cm.db"
-
+#define TELE_DIV @"##" // 手机号里的分割付
 

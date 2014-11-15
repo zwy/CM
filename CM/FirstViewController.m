@@ -8,7 +8,7 @@
 
 #import "FirstViewController.h"
 #import "First1NormalCell.h"
-
+#import "First1ManageViewController.h"
 @interface FirstViewController ()
 
 @end
@@ -24,6 +24,11 @@
     
     [self createTableViewDataSouce];
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -38,7 +43,7 @@
 - (void)createContact
 {
     [self checkAddressBook];
-    [self createAddressBook];
+    
 }
 
 - (void)checkAddressBook
@@ -62,28 +67,13 @@
     }
 }
 
-- (void)createAddressBook
-{
 
-    if (ABAddressBookGetAuthorizationStatus() != kABAuthorizationStatusAuthorized) {
-
-        [PublicClassMethod alertWithTitle:@"读取通讯录失败！" msg:@"读取通讯录失败，请到设置->隐私->通讯录，中开启常联系访问通讯录功能" cancelTitle:nil tag:0 delegate:nil];
-        
-    }
-    else if (self.addressBooks == nil) {
-
-    }
-    else
-    {
-
-    }
-}
 
 #pragma mark
 - (void)createTableViewDataSouce
 {
     self.dataArray = [[NSMutableArray alloc] initWithObjects:
-                    //1 全名
+                    //1 同步
                     [[NSDictionary alloc] initWithObjectsAndKeys:
                      [NSArray arrayWithObjects:@"ManageCellId", nil],kCellIdentifier,
                      [NSArray arrayWithObjects:@"同步本地通讯录", nil],kCellTitle,
@@ -91,7 +81,19 @@
                      [NSArray arrayWithObjects:CellAccessoryNone, nil],kCellAccessoryType,
                      [NSArray arrayWithObjects:@"First_Sync_Contacts_Segue", nil],kCellSegue,
                      nil],
-                     
+                      
+                      
+                      //2 一键检测
+                      
+                      // 3 合并 删除等一系列操作
+                      [[NSDictionary alloc] initWithObjectsAndKeys:
+                       [NSArray arrayWithObjects:@"ManageCellId",@"ManageCellId",@"ManageCellId", nil],kCellIdentifier,
+                       [NSArray arrayWithObjects:@"去重",@"合并",@"批量删除", nil],kCellTitle,
+                       [NSArray arrayWithObjects:@"去掉名字电话相同的",@"将名字相同电话不同的合并",@"批量删掉那些没关系的人", nil],kCellContent,
+                       [NSArray arrayWithObjects:CellAccessoryNone,CellAccessoryNone,CellAccessoryNone, nil],kCellAccessoryType,
+                       [NSArray arrayWithObjects:@"Delete_Same_Contact_Segue", @"Delete_Same_Contact_Segue",@"Delete_Same_Contact_Segue",nil],kCellSegue,
+                       nil],
+                      // 4 群发短信邮件
                       nil];
 }
 
@@ -117,11 +119,14 @@
     NSArray *accessoryArray = [dic objectForKey:kCellAccessoryType];
     NSString *cellAccessoryType = [accessoryArray objectAtIndex:indexPath.row];
 
+    NSArray *titleArray = [dic objectForKey:kCellTitle];
+    NSArray *valueArray = [dic objectForKey:kCellContent];
     First1NormalCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.accessoryType = [PublicClassMethod cellAccessoryType:cellAccessoryType];
 //    cell.textLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     // Configure the cell...
-    cell.nameLabel.text = @"同步本地通讯录";
+    cell.nameLabel.text = [titleArray objectAtIndex:indexPath.row];
+    cell.descriptionLabel.text = [valueArray objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -145,8 +150,15 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    self.tabBarController.tabBar.hidden = YES;
     if ([segue.identifier isEqualToString:@"First_Sync_Contacts_Segue"]) {
         
+    }
+    else if ([segue.identifier isEqualToString:@"Delete_Same_Contact_Segue"])
+    {
+        First1ManageViewController *first1ManageViewController = [segue destinationViewController];
+        first1ManageViewController.type = delSameContact;
+        first1ManageViewController.navTitle = @"去重";
     }
 }
 

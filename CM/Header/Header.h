@@ -16,5 +16,5 @@
 #import <AddressBook/AddressBook.h>
 #import "ZWYKeyMacro.h"
 #import "ZWYDBHelper.h"
-
+#import "ZWYAppMacro.h"
 

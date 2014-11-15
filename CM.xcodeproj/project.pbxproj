@@ -18,6 +18,9 @@
 		18478D9D1A13670D0018BDEF /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 18478D961A13670D0018BDEF /* FMDatabaseQueue.m */; };
 		18478D9E1A13670D0018BDEF /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 18478D991A13670D0018BDEF /* FMResultSet.m */; };
 		18478DA01A13678C0018BDEF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18478D9F1A13678C0018BDEF /* libsqlite3.dylib */; };
+		189628221A14B8640086D4C5 /* PublicAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189628211A14B8640086D4C5 /* PublicAddressBookViewController.m */; };
+		18BD2CF21A1488DE0092C1FB /* ContactItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BD2CF11A1488DE0092C1FB /* ContactItem.m */; };
+		18BD2CF51A14A6C70092C1FB /* First1ManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BD2CF41A14A6C70092C1FB /* First1ManageViewController.m */; };
 		18D294A41A0F644600D0714D /* CMTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D294A31A0F644600D0714D /* CMTabBarViewController.m */; };
 		18D317521A089AF8003F98C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D317511A089AF8003F98C9 /* main.m */; };
 		18D317551A089AF8003F98C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D317541A089AF8003F98C9 /* AppDelegate.m */; };
@@ -63,6 +66,13 @@
 		18478D981A13670D0018BDEF /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		18478D991A13670D0018BDEF /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		18478D9F1A13678C0018BDEF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		1896281F1A14B3C50086D4C5 /* ZWYAppMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZWYAppMacro.h; path = Header/ZWYAppMacro.h; sourceTree = "<group>"; };
+		189628201A14B8640086D4C5 /* PublicAddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicAddressBookViewController.h; path = Public/PublicAddressBookViewController.h; sourceTree = "<group>"; };
+		189628211A14B8640086D4C5 /* PublicAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublicAddressBookViewController.m; path = Public/PublicAddressBookViewController.m; sourceTree = "<group>"; };
+		18BD2CF01A1488DE0092C1FB /* ContactItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactItem.h; sourceTree = "<group>"; };
+		18BD2CF11A1488DE0092C1FB /* ContactItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactItem.m; sourceTree = "<group>"; };
+		18BD2CF31A14A6C70092C1FB /* First1ManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = First1ManageViewController.h; sourceTree = "<group>"; };
+		18BD2CF41A14A6C70092C1FB /* First1ManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = First1ManageViewController.m; sourceTree = "<group>"; };
 		18D294A21A0F644600D0714D /* CMTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTabBarViewController.h; sourceTree = "<group>"; };
 		18D294A31A0F644600D0714D /* CMTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTabBarViewController.m; sourceTree = "<group>"; };
 		18D3174C1A089AF8003F98C9 /* CM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +118,8 @@
 			children = (
 				18478D6A1A1354FA0018BDEF /* PublicClassMethod.h */,
 				18478D6B1A1354FA0018BDEF /* PublicClassMethod.m */,
+				189628201A14B8640086D4C5 /* PublicAddressBookViewController.h */,
+				189628211A14B8640086D4C5 /* PublicAddressBookViewController.m */,
 			);
 			name = Public;
 			sourceTree = "<group>";
@@ -117,6 +129,7 @@
 			children = (
 				18478D6E1A1355C80018BDEF /* Header.h */,
 				18478D731A135B4C0018BDEF /* ZWYKeyMacro.h */,
+				1896281F1A14B3C50086D4C5 /* ZWYAppMacro.h */,
 			);
 			name = Header;
 			sourceTree = "<group>";
@@ -165,6 +178,15 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
+		18BD2CEF1A1488DE0092C1FB /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				18BD2CF01A1488DE0092C1FB /* ContactItem.h */,
+				18BD2CF11A1488DE0092C1FB /* ContactItem.m */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
 		18D317431A089AF8003F98C9 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +209,7 @@
 		18D3174E1A089AF8003F98C9 /* CM */ = {
 			isa = PBXGroup;
 			children = (
+				18BD2CEF1A1488DE0092C1FB /* Contact */,
 				18478D7C1A1363890018BDEF /* ThirdLib */,
 				18478D781A13629F0018BDEF /* DBHelper */,
 				18478D6D1A13557C0018BDEF /* Header */,
@@ -242,6 +265,8 @@
 				18478D6F1A1359220018BDEF /* cell */,
 				18D317791A089CE7003F98C9 /* First1TableViewController.h */,
 				18D3177A1A089CE7003F98C9 /* First1TableViewController.m */,
+				18BD2CF31A14A6C70092C1FB /* First1ManageViewController.h */,
+				18BD2CF41A14A6C70092C1FB /* First1ManageViewController.m */,
 			);
 			name = FirstGroup;
 			sourceTree = "<group>";
@@ -356,7 +381,10 @@
 				18478D9D1A13670D0018BDEF /* FMDatabaseQueue.m in Sources */,
 				18478D9A1A13670D0018BDEF /* FMDatabase.m in Sources */,
 				18D317551A089AF8003F98C9 /* AppDelegate.m in Sources */,
+				18BD2CF51A14A6C70092C1FB /* First1ManageViewController.m in Sources */,
 				18478D6C1A1354FA0018BDEF /* PublicClassMethod.m in Sources */,
+				189628221A14B8640086D4C5 /* PublicAddressBookViewController.m in Sources */,
+				18BD2CF21A1488DE0092C1FB /* ContactItem.m in Sources */,
 				18D317581A089AF8003F98C9 /* FirstViewController.m in Sources */,
 				18478D9B1A13670D0018BDEF /* FMDatabaseAdditions.m in Sources */,
 				18D317521A089AF8003F98C9 /* main.m in Sources */,
