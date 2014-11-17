@@ -111,7 +111,12 @@
             if (aPhone == nil) {
                 aPhone = @"";
             }
-            [phoneArray addObject:aPhone];
+            aPhone = [PublicClassMethod turePhoneNumber:aPhone];
+            if (![phoneArray containsObject:aPhone]) {
+                [phoneArray addObject:aPhone];
+            }
+            NSLog(@"phoneArray %@",phoneArray);
+            
         }
         [dicInfoLocal setObject:phoneArray forKey:@"teles"];
         CFRelease(phone);
@@ -124,7 +129,11 @@
             if (aEmail == nil) {
                 aEmail = @"";
             }
-            [emailArray addObject:aEmail];
+            aEmail = [PublicClassMethod turePhoneNumber:aEmail];
+            if (![emailArray containsObject:aEmail]) {
+                [emailArray addObject:aEmail];
+            }
+            
         }
         [dicInfoLocal setObject:emailArray forKey:@"emails"];
         CFRelease(email);

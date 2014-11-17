@@ -17,4 +17,6 @@
 @property (nonatomic, retain) NSString *navTitle;
 @property (retain, nonatomic) NSMutableArray *dataArray;
 @property (retain, nonatomic) NSMutableArray *contactArray;
+@property (retain, nonatomic) NSArray *showArray;// 要显示的id的array;
+@property (retain, nonatomic) NSMutableArray *showIdArray;
 @end
