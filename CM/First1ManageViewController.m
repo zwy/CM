@@ -93,7 +93,7 @@
                 ContactItem * contactT = [self.contactArray objectAtIndex:j];
                 
                 // ###### 计算规则1:去重  TODO 算法优化
-                if ([contact.name isEqualToString:contactT.name] && [contact.teles isEqualToString:contactT.teles] ) {
+                if ([contact.name isEqualToString:contactT.name] && [contact.teles isEqualToString:contactT.teles] && [contact.emails isEqualToString:contactT.emails]) {
                     [self.showIdArray addObject:contact.contact_Id];
                     break;
                 }
