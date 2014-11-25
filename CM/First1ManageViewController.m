@@ -52,7 +52,7 @@
 
 - (IBAction)rightItemAction:(id)sender
 {
-    if(self.type == delSameContact)
+    if(self.type == delSameContact || self.type == deleteInvalidContact)
     {
         // 删除
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -74,6 +74,7 @@
             [self toCalculate];
         });
     }
+    
 }
 
 
@@ -97,6 +98,26 @@
                     [self.showIdArray addObject:contact.contact_Id];
                     break;
                 }
+            }
+        }
+        
+        self.showArray = [self.contactArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.contact_Id IN %@",self.showIdArray]];
+        self.editBtn.hidden = YES;
+        
+        [self.tableView reloadData];
+    }
+    else if (self.type == deleteInvalidContact)
+    {
+        // 删除无效的
+        self.contactArray = [self locaAddressBookArray];
+        
+        // 1.找出名字 电话相同的
+        self.showIdArray = [[NSMutableArray alloc] init];
+        for (int i = 0; i < [self.contactArray count]; i ++) {
+            ContactItem * contact = [self.contactArray objectAtIndex:i];
+            // ###### 计算规则1:去重  TODO 算法优化
+            if (contact.name.length == 0 ||(contact.teles.length == 0 && contact.emails.length == 0)) {
+                [self.showIdArray addObject:contact.contact_Id];
             }
         }
         

@@ -71,6 +71,7 @@
                         <outlet property="tableView" destination="kbC-WW-tnl" id="wdy-Pk-rR2"/>
                         <segue destination="JJ3-XA-xU1" kind="show" identifier="First_Sync_Contacts_Segue" id="aDe-uS-YVM"/>
                         <segue destination="J9z-q8-gTF" kind="show" identifier="Delete_Same_Contact_Segue" id="9rm-Ol-e9Y"/>
+                        <segue destination="J9z-q8-gTF" kind="show" identifier="Delete_Invalid_Contact_Segue" id="DGB-6O-J5O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -334,4 +335,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DGB-6O-J5O"/>
+    </inferredMetricsTieBreakers>
 </document>

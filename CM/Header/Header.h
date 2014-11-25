@@ -17,4 +17,9 @@
 #import "ZWYKeyMacro.h"
 #import "ZWYDBHelper.h"
 #import "ZWYAppMacro.h"
+#import "CMAFNetClient.h"
+#import "CMAFHttpPublicMethod.h"
+#import "AFAppDotNetAPIClient.h"
+#import <UIKit+AFNetworking.h>
+
 
