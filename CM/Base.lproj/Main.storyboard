@@ -72,6 +72,7 @@
                         <segue destination="JJ3-XA-xU1" kind="show" identifier="First_Sync_Contacts_Segue" id="aDe-uS-YVM"/>
                         <segue destination="J9z-q8-gTF" kind="show" identifier="Delete_Same_Contact_Segue" id="9rm-Ol-e9Y"/>
                         <segue destination="J9z-q8-gTF" kind="show" identifier="Delete_Invalid_Contact_Segue" id="DGB-6O-J5O"/>
+                        <segue destination="J9z-q8-gTF" kind="show" identifier="Batch_Delete_Contact_Segue" id="pBC-bd-WS7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -90,7 +91,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dXA-u2-eU5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dXA-u2-eU5">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="534"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -114,7 +115,13 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="7br-vI-533"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjh-8D-Ere">
+                                                    <rect key="frame" x="311" y="33" width="281" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -122,9 +129,13 @@
                                             <constraints>
                                                 <constraint firstItem="Mgs-Hj-eca" firstAttribute="leading" secondItem="c5D-qB-los" secondAttribute="trailing" constant="8" id="4JC-1a-mff"/>
                                                 <constraint firstAttribute="trailing" secondItem="Mgs-Hj-eca" secondAttribute="trailing" constant="8" id="5ao-oq-wX4"/>
+                                                <constraint firstAttribute="bottom" secondItem="Wjh-8D-Ere" secondAttribute="bottom" constant="5" id="DSD-GH-zDC"/>
                                                 <constraint firstItem="Mgs-Hj-eca" firstAttribute="top" secondItem="IZx-VE-3qn" secondAttribute="top" constant="12" id="EH2-ET-AUG"/>
                                                 <constraint firstItem="Mgs-Hj-eca" firstAttribute="leading" secondItem="c5D-qB-los" secondAttribute="trailing" constant="8" id="KLl-Bz-nXS"/>
                                                 <constraint firstItem="c5D-qB-los" firstAttribute="top" secondItem="IZx-VE-3qn" secondAttribute="top" constant="12" id="MlA-MF-lwW"/>
+                                                <constraint firstAttribute="trailing" secondItem="Wjh-8D-Ere" secondAttribute="trailing" constant="8" id="QFc-M6-TGQ"/>
+                                                <constraint firstItem="Wjh-8D-Ere" firstAttribute="top" secondItem="Mgs-Hj-eca" secondAttribute="bottom" id="TM7-na-E5v"/>
+                                                <constraint firstItem="Mgs-Hj-eca" firstAttribute="leading" secondItem="Wjh-8D-Ere" secondAttribute="leading" id="ahX-i8-yDS"/>
                                                 <constraint firstItem="Mgs-Hj-eca" firstAttribute="width" secondItem="c5D-qB-los" secondAttribute="width" id="iFd-4i-VlM"/>
                                                 <constraint firstItem="c5D-qB-los" firstAttribute="leading" secondItem="IZx-VE-3qn" secondAttribute="leading" constant="22" id="nz6-jK-Bht"/>
                                             </constraints>
@@ -336,6 +347,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DGB-6O-J5O"/>
+        <segue reference="pBC-bd-WS7"/>
     </inferredMetricsTieBreakers>
 </document>

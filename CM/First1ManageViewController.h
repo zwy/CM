@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "PublicAddressBookViewController.h"
-@interface First1ManageViewController : PublicAddressBookViewController<UITableViewDataSource,UITableViewDelegate>
+@interface First1ManageViewController : PublicAddressBookViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 //@property (nonatomic, assign)ABAddressBookRef addressBooks;
 @property (nonatomic, assign) ManageType type;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;

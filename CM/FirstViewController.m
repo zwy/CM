@@ -93,7 +93,7 @@
                        [NSArray arrayWithObjects:@"去重",@"合并",@"批量删除",@"删除没用的", nil],kCellTitle,
                        [NSArray arrayWithObjects:@"去掉名字电话相同的",@"将名字相同电话不同的合并",@"批量删掉那些没关系的人",@"删掉那些无效的联系人信息", nil],kCellContent,
                        [NSArray arrayWithObjects:CellAccessoryNone,CellAccessoryNone,CellAccessoryNone,CellAccessoryNone, nil],kCellAccessoryType,
-                       [NSArray arrayWithObjects:@"Delete_Same_Contact_Segue", @"Delete_Same_Contact_Segue",@"Delete_Same_Contact_Segue",@"Delete_Invalid_Contact_Segue",nil],kCellSegue,
+                       [NSArray arrayWithObjects:@"Delete_Same_Contact_Segue",@"Delete_Same_Contact_Segue",@"Batch_Delete_Contact_Segue",@"Delete_Invalid_Contact_Segue",nil],kCellSegue,
                        nil],
                       // 4 群发短信邮件
                       nil];
@@ -167,6 +167,12 @@
         First1ManageViewController *first1ManageViewController = [segue destinationViewController];
         first1ManageViewController.type = deleteInvalidContact;
         first1ManageViewController.navTitle = @"删除无效的";
+    }
+    else if ([segue.identifier isEqualToString:@"Batch_Delete_Contact_Segue"])
+    {
+        First1ManageViewController *first1ManageViewController = [segue destinationViewController];
+        first1ManageViewController.type = batchDeleteContact;
+        first1ManageViewController.navTitle = @"批量删除";
     }
 }
 
