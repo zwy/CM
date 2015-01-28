@@ -197,11 +197,6 @@
     if (![db open]) {
         return;
     }
-    
-    //    for (ContactItem *contact in contactArray) {
-    //        DLog(@"name= %@ , teles = %@, lastUpdateTime = %@ where contact_Id = %@",contact.name,contact.teles,contact.lastUpdateTime,contact.contact_Id);
-    //    }
-    
     NSString *dbFilePath =
     [ZWYDBHelper applicationCacheDirectoryFile:DB_FILE_NAME];
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbFilePath];

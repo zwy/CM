@@ -77,7 +77,7 @@
     self.dataArray = [[NSMutableArray alloc] initWithObjects:
                     //1 同步
                     [[NSDictionary alloc] initWithObjectsAndKeys:
-                     [NSArray arrayWithObjects:@"ManageCellId", nil],kCellIdentifier,
+                     [NSArray arrayWithObjects:@"homeMangerCellId", nil],kCellIdentifier,
                      [NSArray arrayWithObjects:@"同步本地通讯录", nil],kCellTitle,
                      [NSArray arrayWithObjects:@"", nil],kCellContent,
                      [NSArray arrayWithObjects:CellAccessoryNone, nil],kCellAccessoryType,
@@ -89,7 +89,7 @@
                       
                       // 3 合并 删除等一系列操作
                       [[NSDictionary alloc] initWithObjectsAndKeys:
-                       [NSArray arrayWithObjects:@"ManageCellId",@"ManageCellId",@"ManageCellId",@"ManageCellId", nil],kCellIdentifier,
+                       [NSArray arrayWithObjects:@"homeMangerCellId",@"homeMangerCellId",@"homeMangerCellId",@"homeMangerCellId", nil],kCellIdentifier,
                        [NSArray arrayWithObjects:@"去重",@"合并",@"批量删除",@"删除没用的", nil],kCellTitle,
                        [NSArray arrayWithObjects:@"去掉名字电话相同的",@"将名字相同电话不同的合并",@"批量删掉那些没关系的人",@"删掉那些无效的联系人信息", nil],kCellContent,
                        [NSArray arrayWithObjects:CellAccessoryNone,CellAccessoryNone,CellAccessoryNone,CellAccessoryNone, nil],kCellAccessoryType,
@@ -123,13 +123,14 @@
 
     NSArray *titleArray = [dic objectForKey:kCellTitle];
     NSArray *valueArray = [dic objectForKey:kCellContent];
-    First1NormalCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+//    First1NormalCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+//    cell.accessoryType = [PublicClassMethod cellAccessoryType:cellAccessoryType];
+//    cell.nameLabel.text = [titleArray objectAtIndex:indexPath.row];
+//    cell.descriptionLabel.text = [valueArray objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.accessoryType = [PublicClassMethod cellAccessoryType:cellAccessoryType];
-//    cell.textLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
-    // Configure the cell...
-    cell.nameLabel.text = [titleArray objectAtIndex:indexPath.row];
-    cell.descriptionLabel.text = [valueArray objectAtIndex:indexPath.row];
-    
+    cell.textLabel.text = [titleArray objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [valueArray objectAtIndex:indexPath.row];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
